@@ -127,7 +127,19 @@ def stop(sec):
 
     time.sleep(sec)
     gpio.cleanup()
-    
+
+def dance():
+    '''
+    Do my little dancey dance
+    '''
+    forward(2)
+    init()
+    left(1.5)
+    init()
+    forward(2)
+    init()
+    right(1.5)
+
 if __name__ == '__main__': # Set the Program start from here
 
     # main program, providing letter input will initiate rover motion.
@@ -148,6 +160,8 @@ if __name__ == '__main__': # Set the Program start from here
         elif (action == 'q'):
             stop(1)
             break
+        elif (action == 'd'):
+            dance()
 
         init()
         stop(1)
