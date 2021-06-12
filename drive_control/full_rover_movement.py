@@ -4,6 +4,7 @@ Code for Movement of Rover with all four motors
 
 import RPi.GPIO as gpio
 import time
+import keyboard
 
 # Back Right Wheel
 back_in1 = 20
@@ -109,6 +110,12 @@ def left(sec):
     time.sleep(sec)
     gpio.cleanup()
 
+def softLeft(sec):
+    gpio.output(back_in4, False)
+    gpio.output(back_in3, True)
+    gpio.output(back_in1,False)
+
+
 def stop(sec):
     # GPIO output to stop motion of motors
     # Mainly used for reseting values after use
@@ -132,18 +139,24 @@ def dance():
     '''
     Do my little dancey dance
     '''
-    forward(2)
+    dur = 1.5
+    forward(dur)
     init()
-    left(1.5)
+    left(dur)
     init()
-    forward(2)
+    forward(dur)
     init()
-    right(1.5)
+    left(dur)
+    init()
+    forward(dur)
+    init()
+    left(dur)
+    init()
+    forward(dur)
+    init()
+    left(dur)
 
-if __name__ == '__main__': # Set the Program start from here
-
-    # main program, providing letter input will initiate rover motion.
-    
+def startWithPress():
     sec = 2
     print("Begin Program")
     while(True):
@@ -165,3 +178,21 @@ if __name__ == '__main__': # Set the Program start from here
 
         init()
         stop(1)
+
+def continuousInput():
+    # work in progress to add continuous input
+    dur = 1
+    while(True):
+        init()
+        try:
+            if keyboard.is_pressed('w'):
+                forward(dur)
+            elif keyboard.is_pressed('q'):
+                stop(1)
+                break
+        except:
+            pass
+
+if (__name__ == "__main__"):
+    startWithPress()
+    # continuousInput()
