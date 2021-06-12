@@ -9,8 +9,8 @@ def setup():
     # Set GPIO as PIN Numbers 
     GPIO.setmode(GPIO.BCM) 
     # Initalize the GPIO input for the photointerrupter
-    GPIO.setup(26, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
-    GPIO.add_event_detect(26, GPIO.BOTH, callback=detect, bouncetime=1)
+    GPIO.setup(14, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
+    GPIO.add_event_detect(14, GPIO.BOTH, callback=detect, bouncetime=1)
      
 def print_status(x):
     # Prints the current status of the photointerrupter (either interrupted and not interrupted)
@@ -22,7 +22,7 @@ def print_status(x):
      
 def detect(chn):
     # When a change in status is detected by the photointerrupter, this function will be called
-    print_status(GPIO.input(26))
+    print_status(GPIO.input(14))
     
  
 def loop():
