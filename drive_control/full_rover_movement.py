@@ -179,6 +179,47 @@ def startWithPress():
         init()
         stop(1)
 
+# def on_key_release(key):
+#     # When Key is released disable thing
+#     init()
+#     stop()
+
+
+def purelyForTesting():
+    # This function is purely for me testing GPIO output changes and doesn't serve much functional purpose
+    # Trying to move rover forward and then backward without cleaning GPIO to confirm functionality
+
+    sec = 2
+
+    # For Back
+    gpio.output(back_in4, True)
+    gpio.output(back_in3, False)
+    gpio.output(back_in1, False)
+    gpio.output(back_in2, True)
+
+    # For Front
+    gpio.output(front_in4, False)
+    gpio.output(front_in3, True)
+    gpio.output(front_in1, True)
+    gpio.output(front_in2, False)
+
+    time.sleep(sec)
+    
+    # For Back
+    gpio.output(back_in4, False)
+    gpio.output(back_in3, True)
+    gpio.output(back_in1, True)
+    gpio.output(back_in2, False)
+
+    # For Front
+    gpio.output(front_in4, True)
+    gpio.output(front_in3, False)
+    gpio.output(front_in1, False)
+    gpio.output(front_in2, True)
+
+    time.sleep(sec)
+    
+
 def continuousInput():
     # work in progress to add continuous input
     dur = 1
