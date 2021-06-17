@@ -7,20 +7,20 @@ import time
 import keyboard
 
 # Back Right Wheel
-back_in1 = 20
-back_in2 = 16
+back_in1 = 25
+back_in2 = 8
 
 # Back Left Wheel
-back_in3 = 26
-back_in4 = 19
+back_in3 = 9
+back_in4 = 11
 
 # Front Left Wheel
-front_in1 = 9
-front_in2 = 11
+front_in1 = 26
+front_in2 = 19
 
 # Front Right Wheel
-front_in3 = 25
-front_in4 = 8
+front_in3 = 16
+front_in4 = 20
 
 def init():
     # initialize the GPIO pins
@@ -235,5 +235,11 @@ def continuousInput():
             pass
 
 if (__name__ == "__main__"):
-    startWithPress()
+    # startWithPress()
     # continuousInput()
+    init()
+    forward(2)
+    init()
+    stop(1)
+    init()
+    reverse(2)
