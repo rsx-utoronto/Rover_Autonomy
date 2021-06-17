@@ -188,8 +188,9 @@ def startWithPress():
 def purelyForTesting():
     # This function is purely for me testing GPIO output changes and doesn't serve much functional purpose
     # Trying to move rover forward and then backward without cleaning GPIO to confirm functionality
-
+    
     sec = 2
+    init()
 
     # For Back
     gpio.output(back_in4, True)
@@ -218,6 +219,7 @@ def purelyForTesting():
     gpio.output(front_in2, True)
 
     time.sleep(sec)
+    gpio.cleanup()
     
 
 def continuousInput():
@@ -237,3 +239,5 @@ def continuousInput():
 if (__name__ == "__main__"):
     startWithPress()
     # continuousInput()
+
+    # purelyForTesting()
