@@ -122,6 +122,7 @@ def left(sec):
     gpio.cleanup()
 
 def softLeft(sec):
+    # Not currently operational
     gpio.output(back_in4, False)
     gpio.output(back_in3, True)
     gpio.output(back_in1,False)
