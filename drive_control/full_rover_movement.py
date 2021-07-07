@@ -41,6 +41,8 @@ def forward(sec):
     # GPIO output to spin the motors in the direction that moves the rover forward
     # input is the time desired (in secs) for the motors to spin
     
+    print("Moving Forward...")
+    
     # For Back
     gpio.output(back_in4, True)
     gpio.output(back_in3, False)
@@ -59,6 +61,9 @@ def forward(sec):
 def reverse(sec):
     # GPIO output to spin the motors in the direction that moves the rover backwards
     # input is the time desired (in secs) for the motors to spin
+    
+    print("Moving Backward...")
+    
     # For Back
     gpio.output(back_in4, False)
     gpio.output(back_in3, True)
@@ -77,6 +82,9 @@ def reverse(sec):
 def right(sec):
     # GPIO output to spin the motors in the direction that turns the rover right
     # input is the time desired (in secs) for the motors to spin
+    
+    print("Turn Right...")
+    
     # For Back
     gpio.output(back_in4, True)
     gpio.output(back_in3, False)
@@ -95,6 +103,9 @@ def right(sec):
 def left(sec):
     # GPIO output to spin the motors in the direction that turns the rover left
     # input is the time desired (in secs) for the motors to spin
+    
+    print("Turning Left...")
+    
     # For Back
     gpio.output(back_in4, False)
     gpio.output(back_in3, True)
