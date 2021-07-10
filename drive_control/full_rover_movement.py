@@ -1,5 +1,6 @@
 '''
 Code for Movement of Rover with all four motors
+Must use Python 3+
 '''
 
 import RPi.GPIO as gpio
@@ -247,6 +248,8 @@ def continuousInput():
                 break
         except:
             pass
+
+    gpio.cleanup()
 
 if (__name__ == "__main__"):
     startWithPress()
