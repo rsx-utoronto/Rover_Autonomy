@@ -47,3 +47,6 @@ if __name__ == "__main__":
     # showPreview(2)
     takePicture(3)
     # recordVideo(3)
+
+    # https://www.pyimagesearch.com/2015/03/30/accessing-the-raspberry-pi-camera-with-opencv-and-python/
+    # Tutorial for RPi camera and Open CV
