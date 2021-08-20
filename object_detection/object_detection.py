@@ -87,7 +87,11 @@ cap = cv2.VideoCapture(0)
 
 # Video loop
 while True:
-    _, frame = cap.read()
+    ret, frame = cap.read()
+
+    if not ret:
+        print('Video stream is not setup properly...')
+        break
 
     input_tensor = tf.convert_to_tensor(
         np.expand_dims(frame, 0), dtype=tf.float32)
