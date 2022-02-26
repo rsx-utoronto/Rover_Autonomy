@@ -1,6 +1,5 @@
 '''
 Code for Movement of Rover with all four motors
-Must use Python 3+
 '''
 
 import RPi.GPIO as gpio
@@ -42,8 +41,6 @@ def forward(sec):
     # GPIO output to spin the motors in the direction that moves the rover forward
     # input is the time desired (in secs) for the motors to spin
     
-    print("Moving Forward...")
-    
     # For Back
     gpio.output(back_in4, True)
     gpio.output(back_in3, False)
@@ -62,9 +59,6 @@ def forward(sec):
 def reverse(sec):
     # GPIO output to spin the motors in the direction that moves the rover backwards
     # input is the time desired (in secs) for the motors to spin
-    
-    print("Moving Backward...")
-    
     # For Back
     gpio.output(back_in4, False)
     gpio.output(back_in3, True)
@@ -83,9 +77,6 @@ def reverse(sec):
 def right(sec):
     # GPIO output to spin the motors in the direction that turns the rover right
     # input is the time desired (in secs) for the motors to spin
-    
-    print("Turn Right...")
-    
     # For Back
     gpio.output(back_in4, True)
     gpio.output(back_in3, False)
@@ -104,9 +95,6 @@ def right(sec):
 def left(sec):
     # GPIO output to spin the motors in the direction that turns the rover left
     # input is the time desired (in secs) for the motors to spin
-    
-    print("Turning Left...")
-    
     # For Back
     gpio.output(back_in4, False)
     gpio.output(back_in3, True)
@@ -123,7 +111,6 @@ def left(sec):
     gpio.cleanup()
 
 def softLeft(sec):
-    # Not currently operational
     gpio.output(back_in4, False)
     gpio.output(back_in3, True)
     gpio.output(back_in1,False)
@@ -201,9 +188,8 @@ def startWithPress():
 def purelyForTesting():
     # This function is purely for me testing GPIO output changes and doesn't serve much functional purpose
     # Trying to move rover forward and then backward without cleaning GPIO to confirm functionality
-    
+
     sec = 2
-    init()
 
     # For Back
     gpio.output(back_in4, True)
@@ -232,7 +218,6 @@ def purelyForTesting():
     gpio.output(front_in2, True)
 
     time.sleep(sec)
-    gpio.cleanup()
     
 
 def continuousInput():
@@ -249,15 +234,12 @@ def continuousInput():
         except:
             pass
 
-    gpio.cleanup()
-
 if (__name__ == "__main__"):
-    # startWithPress()
+    startWithPress()
     # continuousInput()
-    init()
-    forward(2)
-    init()
-    stop(1)
-    init()
-    reverse(2)
-    # purelyForTesting()
+    #init()
+    #forward(2)
+    #init()
+    #stop(1)
+    #init()
+    #reverse(2)
